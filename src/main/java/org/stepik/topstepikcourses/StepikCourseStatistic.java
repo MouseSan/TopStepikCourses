@@ -17,6 +17,10 @@ public class StepikCourseStatistic {
 
         courseList.sort(Course.Comparators.LEARNERS_COUNT);
 
+        if (numberOfTopCourses > courseList.size()) {
+            numberOfTopCourses = courseList.size();
+        }
+
         for (int coursePlace = 1; coursePlace <= numberOfTopCourses; coursePlace++) {
             System.out.println("Place #" + coursePlace);
             System.out.println("Course title: " + courseList.get(coursePlace - 1).getTitle());
