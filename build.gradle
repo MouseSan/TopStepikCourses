@@ -1,0 +1,24 @@
+group 'stepik'
+version '0.1'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
+    compile 'org.projectlombok:lombok:1.16.20'
+}
+
+task(runApp, dependsOn: 'classes', type: JavaExec) {
+    main = 'org.stepik.topstepikcourses.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    if (project.hasProperty('numberOfTopCourses')) {
+        args(numberOfTopCourses.split(','))
+    }
+}
