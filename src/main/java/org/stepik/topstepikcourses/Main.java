@@ -17,8 +17,8 @@ public class Main {
 
         try {
             Integer numberOfTopCourses = Integer.parseInt(args[0]);
-            if (numberOfTopCourses == 0) {
-                System.out.println("Zero value parameter passed, nothing to retrieve.");
+            if (numberOfTopCourses <= 0) {
+                System.out.println("Parameter passed less or equals zero, nothing to retrieve.");
                 return false;
             }
             return true;
